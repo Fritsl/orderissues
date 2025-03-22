@@ -43,7 +43,7 @@ export const Note: React.FC<NoteProps> = ({ note, level, onError }) => {
     handleDrop,
     handleReorder,
     draggedNote,
-    setIsDraggedOver
+    setIsDragOver
   } = useDragDrop(note, onError);
 
 
@@ -62,7 +62,7 @@ export const Note: React.FC<NoteProps> = ({ note, level, onError }) => {
             const dropPosition = getDragPosition(e);
             handleReorder(draggedNote.id, note.id, dropPosition);
           }
-          setIsDraggedOver(false);
+          setIsDragOver(false);
         }}
         onClick={(e) => {
           e.preventDefault();
