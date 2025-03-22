@@ -40,6 +40,22 @@ BEGIN
   WHERE id = p_note_id
   FOR UPDATE;
 
+  -- Debug logging
+  RAISE NOTICE 'Move request - Note ID: %, Old Position: %, New Position: %, Parent ID: %',
+    p_note_id, v_old_position, p_new_position, p_new_parent_id;
+
+  -- Log current positions
+  FOR note_rec IN 
+    SELECT id, position, parent_id
+    FROM notes 
+    WHERE project_id = v_project_id 
+    AND parent_id IS NOT DISTINCT FROM p_new_parent_id
+    ORDER BY position
+  LOOP
+    RAISE NOTICE 'Before move - Note ID: %, Position: %, Parent: %',
+      note_rec.id, note_rec.position, note_rec.parent_id;
+  END LOOP;
+
   -- Moving within same parent
   IF v_old_parent_id IS NOT DISTINCT FROM p_new_parent_id THEN
     -- First store the note in a temporary negative position to avoid conflicts
