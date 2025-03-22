@@ -45,12 +45,12 @@ export const createNoteSlice: StateCreator<Store> = (set, get) => ({
       // Find all notes at the target level with the same parent
       const siblingNotes = state.notes.filter(n => n.parent_id === newParentId);
       const draggedNote = state.notes.find(n => n.id === id);
-      
+
       if (!draggedNote) return state;
 
       // Create new array without the dragged note
       let updatedNotes = state.notes.filter(n => n.id !== id);
-      
+
       // Update the dragged note
       const updatedDraggedNote = {
         ...draggedNote,
@@ -87,7 +87,7 @@ export const createNoteSlice: StateCreator<Store> = (set, get) => ({
             canUndo: true
           };
         }
-        return { notes: updatedNotes};
+        return { notes: updatedNotes };
     });
   },
 
