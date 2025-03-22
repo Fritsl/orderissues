@@ -11,6 +11,11 @@ export const useDragDrop = (note: Note, onError: (error: Error) => void) => {
   const { moveNote, currentLevel } = useNoteStore();
 
   const handleDragStart = (e: React.DragEvent) => {
+    console.log('Drag started:', {
+      noteId: note.id,
+      noteContent: note.content.substring(0, 50),
+      level: currentLevel
+    });
     e.dataTransfer.setData('text/plain', note.id);
     e.dataTransfer.effectAllowed = 'move';
     setIsDragging(true);
@@ -59,11 +64,29 @@ export const useDragDrop = (note: Note, onError: (error: Error) => void) => {
     try {
       const rect = e.currentTarget.getBoundingClientRect();
       const isParentZone = e.clientX > rect.right - rect.width * 0.2;
+      const position = e.clientY < rect.top + rect.height / 2 ? note.position : note.position + 1;
+      
+      console.log('Drop detected:', {
+        draggedId,
+        targetId: note.id,
+        isParentZone,
+        targetPosition: position,
+        currentLevel,
+        mouseX: e.clientX,
+        mouseY: e.clientY,
+        rect: {
+          top: rect.top,
+          right: rect.right,
+          width: rect.width,
+          height: rect.height
+        }
+      });
       
       if (isParentZone) {
+        console.log('Moving note as child:', { draggedId, newParentId: note.id });
         moveNote(draggedId, note.id, 0, currentLevel);
       } else {
-        const position = e.clientY < rect.top + rect.height / 2 ? note.position : note.position + 1;
+        console.log('Moving note as sibling:', { draggedId, parentId: note.parent_id, position });
         moveNote(draggedId, note.parent_id, position, currentLevel);
       }
 

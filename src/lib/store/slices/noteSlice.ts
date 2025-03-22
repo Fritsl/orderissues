@@ -40,6 +40,7 @@ export const createNoteSlice: StateCreator<Store> = (set, get) => ({
   },
 
   moveNote: (id: string, newParentId: string | null, newLevel: number, newPosition: number) => { // Updated moveNote
+    console.log('moveNote called:', { id, newParentId, newPosition, newLevel });
     set(state => {
       const updatedNotes = produce(state.notes, draft => {
         const noteIndex = draft.findIndex(n => n.id === id);
