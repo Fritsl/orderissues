@@ -1,33 +1,17 @@
+import { supabase } from '../lib/supabase';
+
 const moveNote = async (noteId: string, newParentId: string | null, newPosition: number) => {
-  console.log('moveNote called with:', { noteId, newParentId, newPosition });
-  try {
-    // Log at the start
-    console.log('Starting note movement...', {
-      noteId,
-      newParentId,
-      newPosition,
-    });
-
-    const { data: notesBefore } = await supabase
-      .from('notes')
-      .select('id, position, parent_id')
-      .order('position');
-    console.log('Notes before move:', notesBefore);
-
-    const result = await supabase.rpc('move_note', {
-      p_note_id: noteId,
-      p_new_parent_id: newParentId,
-      p_new_position: newPosition,
-    });
-    console.log('Move result:', result);
-
-    const { data: notesAfter } = await supabase
-      .from('notes')
-      .select('id, position, parent_id')
-      .order('position');
-    console.log('Notes after move:', notesAfter);
-  } catch (error) {
-    console.error('Error moving note:', error);
-    // Handle error appropriately, e.g., display an error message to the user
+  // Only update parent_id in database if moving to different parent
+  if (newParentId !== null) {
+    try {
+      await supabase
+        .from('notes')
+        .update({ parent_id: newParentId })
+        .eq('id', noteId);
+    } catch (error) {
+      console.error('Error updating note parent:', error);
+    }
   }
 };
+
+export { moveNote };
