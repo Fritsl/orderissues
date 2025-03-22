@@ -3,16 +3,19 @@ import { Store } from '../types';
 import { findNoteById, removeNoteById } from '../../utils';
 import { supabase } from '../../supabase';
 import { handleDatabaseError } from '../../errors';
+import produce from 'immer';
 
 export interface Store {
   notes: Note[];
   title: string;
   isEditMode: boolean;
+  setNotes: (notes: Note[]) => void; // Added setNotes function
 }
 
 export const createNoteSlice: StateCreator<Store> = (set, get) => ({
   notes: [],
   isEditMode: false,
+  setNotes: (notes) => set({ notes }), // Added setNotes implementation
   undoStack: [],
   canUndo: false,
   lastUndoAction: null,
@@ -36,38 +39,59 @@ export const createNoteSlice: StateCreator<Store> = (set, get) => ({
     }
   },
 
-  moveNote: (id: string, parentId: string | null, level: number) => {
-    const state = get();
-    const oldNote = findNoteById(state.notes, id);
-    const oldParentId = oldNote?.parent_id;
-
-
-    const newLevel = Math.max(0, level);
-
-    // Update the moved note's parent_id in UI only
+  moveNote: (id: string, newParentId: string | null, newLevel: number, newPosition: number) => { // Updated moveNote
     set(state => {
-      const updatedNotes = [...state.notes];
-      const noteIndex = updatedNotes.findIndex(n => n.id === id);
-      if (noteIndex !== -1) {
-          updatedNotes[noteIndex].parent_id = parentId;
-          updatedNotes[noteIndex].level = newLevel;
-      }
+      const updatedNotes = produce(state.notes, draft => {
+        const noteIndex = draft.findIndex(n => n.id === id);
+        if (noteIndex !== -1) {
+          const note = draft[noteIndex];
+          const oldParentId = note.parent_id;
+          const oldLevel = note.level;
+          const oldPosition = note.position;
 
 
-      // Add to undo stack
-      if (oldNote) {
-        return {
-          notes: updatedNotes,
-          undoStack: [...state.undoStack, {
-            execute: () => get().moveNote(id, parentId, level),
-            undo: () => get().moveNote(id, oldParentId, state.currentLevel),
-            description: 'Move note'
-          }],
-          canUndo: true
-        };
-      }
-      return { notes: updatedNotes};
+          //Remove from old parent
+          if(oldParentId){
+            const oldParentIndex = draft.findIndex(n => n.id === oldParentId);
+            if(oldParentIndex !== -1){
+              draft[oldParentIndex].children = draft[oldParentIndex].children.filter(n => n.id !== id);
+            }
+          } else {
+            draft.splice(noteIndex, 1);
+          }
 
+
+          note.parent_id = newParentId;
+          note.level = newLevel;
+          note.position = newPosition; // Add position
+
+
+          //Add to new parent
+          if(newParentId){
+            const newParentIndex = draft.findIndex(n => n.id === newParentId);
+            if(newParentIndex !== -1){
+              draft[newParentIndex].children.splice(newPosition, 0, note);
+            }
+          } else {
+            draft.splice(newPosition, 0, note);
+          }
+        }
+      });
+
+        // Add to undo stack
+        const oldNote = findNoteById(state.notes, id);
+        if (oldNote) {
+          return {
+            notes: updatedNotes,
+            undoStack: [...state.undoStack, {
+              execute: () => get().moveNote(id, newParentId, newLevel, newPosition),
+              undo: () => get().moveNote(id, oldParentId, oldLevel, oldPosition), //Revert to old position
+              description: 'Move note'
+            }],
+            canUndo: true
+          };
+        }
+        return { notes: updatedNotes};
     });
   },
 

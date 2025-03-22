@@ -34,8 +34,10 @@ export const Note: React.FC<NoteProps> = ({ note, level, onError }) => {
     handleDragEnd,
     handleDragOver,
     handleDragLeave,
-    handleDrop
-  } = useDragDrop(note, onError); // Assumed useDragDrop now returns dropZone
+    handleDrop,
+    handleReorder // Added handleReorder
+  } = useDragDrop(note, onError);
+
 
   useClickOutside(noteRef, () => {
     if (isSelected) {
@@ -49,7 +51,7 @@ export const Note: React.FC<NoteProps> = ({ note, level, onError }) => {
         onClick={(e) => {
           e.preventDefault();
           e.stopPropagation();
-          
+
           if (e.ctrlKey || e.metaKey) {
             const url = new URL(window.location.href);
             url.searchParams.set('note', note.id);
@@ -70,7 +72,14 @@ export const Note: React.FC<NoteProps> = ({ note, level, onError }) => {
         onDragEnd={handleDragEnd}
         onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}
-        onDrop={handleDrop}
+        onDrop={(e) => {
+          e.preventDefault();
+          const draggedId = e.dataTransfer.getData("text/plain");
+          const dropTarget = e.currentTarget;
+          const dropTargetRect = dropTarget.getBoundingClientRect();
+          const dropPosition = e.clientY < (dropTargetRect.top + dropTargetRect.bottom) / 2 ? 'before' : 'after';
+          handleReorder(draggedId, note.id, dropPosition);
+        }}
         className={`flex items-start gap-2 p-3 rounded-lg shadow-md hover:shadow-lg transition-all cursor-move bg-opacity-90 hover:bg-opacity-100 relative
           ${LEVEL_COLORS[Math.min(level, LEVEL_COLORS.length - 1)]} 
           ${isDragging ? 'opacity-50' : ''}
