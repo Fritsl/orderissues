@@ -40,56 +40,40 @@ export const createNoteSlice: StateCreator<Store> = (set, get) => ({
   },
 
   moveNote: (id: string, newParentId: string | null, newLevel: number, newPosition: number) => {
-    console.log('moveNote called:', { id, newParentId, newPosition, newLevel });
-    set(state => {
-      // Find all notes at the target level with the same parent
-      const siblingNotes = state.notes.filter(n => n.parent_id === newParentId);
-      const draggedNote = state.notes.find(n => n.id === id);
+      console.log('moveNote called:', { id, newParentId, newPosition, newLevel });
+      set(state => {
+        // Find all notes at the target level with the same parent
+        const siblingNotes = state.notes.filter(n => n.parent_id === newParentId);
+        const draggedNote = state.notes.find(n => n.id === id);
 
-      if (!draggedNote) return state;
+        if (!draggedNote) return state;
 
-      // Create new array without the dragged note
-      let updatedNotes = state.notes.filter(n => n.id !== id);
+        // Create new array without the dragged note
+        let updatedNotes = state.notes.filter(n => n.id !== id);
 
-      // Update the dragged note
-      const updatedDraggedNote = {
-        ...draggedNote,
-        parent_id: newParentId,
-        level: newLevel,
-        position: newPosition
-      };
+        // Update the dragged note
+        const updatedDraggedNote = {
+          ...draggedNote,
+          parent_id: newParentId,
+          level: newLevel,
+          position: newPosition
+        };
 
-      // Insert the note at the new position
-      updatedNotes.splice(newPosition, 0, updatedDraggedNote);
+        // Insert the note at the new position
+        updatedNotes.splice(newPosition, 0, updatedDraggedNote);
 
-      // Update positions of all notes
-      updatedNotes = updatedNotes.map((note, index) => ({
-        ...note,
-        position: index
-      }));
+        // Update positions of all notes
+        updatedNotes = updatedNotes.map((note, index) => ({
+          ...note,
+          position: index
+        }));
 
-      return {
-        ...state,
-        notes: updatedNotes
-      };
-    });
-
-        // Add to undo stack
-        const oldNote = findNoteById(state.notes, id);
-        if (oldNote) {
-          return {
-            notes: updatedNotes,
-            undoStack: [...state.undoStack, {
-              execute: () => get().moveNote(id, newParentId, newLevel, newPosition),
-              undo: () => get().moveNote(id, oldParentId, oldLevel, oldPosition), //Revert to old position
-              description: 'Move note'
-            }],
-            canUndo: true
-          };
-        }
-        return { notes: updatedNotes };
-    });
-  },
+        return {
+          ...state,
+          notes: updatedNotes
+        };
+      });
+    },
 
   deleteNote: async (id: string) => {
     try {
