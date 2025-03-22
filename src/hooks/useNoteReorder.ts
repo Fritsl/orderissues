@@ -9,34 +9,36 @@ export const useNoteReorder = () => {
 
   const reorderNotes = useCallback((draggedId: string, targetId: string, position: 'before' | 'after') => {
     console.log('Reordering notes:', { draggedId, targetId, position });
-    const newNotes = [...notes];
     
-    // Find indices
-    const draggedNote = newNotes.find(n => n.id === draggedId);
-    const targetNote = newNotes.find(n => n.id === targetId);
+    // Find notes at their current positions
+    const draggedNoteIndex = notes.findIndex(n => n.id === draggedId);
+    const targetNoteIndex = notes.findIndex(n => n.id === targetId);
     
-    console.log('Found notes:', { 
-      draggedNote: draggedNote ? { id: draggedNote.id, content: draggedNote.content } : null,
-      targetNote: targetNote ? { id: targetNote.id, content: targetNote.content } : null
-    });
-    
-    if (!draggedNote || !targetNote) {
-      console.warn('Missing notes for reorder:', { draggedNote, targetNote });
+    if (draggedNoteIndex === -1 || targetNoteIndex === -1) {
+      console.warn('Missing notes for reorder:', { draggedNoteIndex, targetNoteIndex });
       return;
     }
+
+    // Create new array and remove dragged note
+    const newNotes = [...notes];
+    const [draggedNote] = newNotes.splice(draggedNoteIndex, 1);
     
-    // Remove dragged note
-    const filteredNotes = newNotes.filter(n => n.id !== draggedId);
+    // Calculate insert position
+    const insertIndex = position === 'after' ? 
+      targetNoteIndex : 
+      targetNoteIndex > draggedNoteIndex ? targetNoteIndex - 1 : targetNoteIndex;
     
-    // Find target index
-    const targetIndex = filteredNotes.findIndex(n => n.id === targetId);
-    const insertIndex = position === 'after' ? targetIndex + 1 : targetIndex;
-    
-    // Insert note at new position
-    filteredNotes.splice(insertIndex, 0, draggedNote);
+    // Insert at new position
+    newNotes.splice(insertIndex, 0, draggedNote);
     
     // Update store
-    setNotes(filteredNotes);
+    setNotes(newNotes);
+    
+    console.log('Reorder complete:', { 
+      draggedNote: draggedNote.content,
+      targetNote: notes[targetNoteIndex].content,
+      newPosition: insertIndex
+    });
   }, [notes, setNotes]);
 
   return { reorderNotes };
