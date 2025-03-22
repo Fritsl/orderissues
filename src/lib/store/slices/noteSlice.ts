@@ -1,7 +1,7 @@
 import { StateCreator } from 'zustand';
 import { Store } from '../types';
 import { findNoteById, removeNoteById } from '../../utils';
-import { database } from '../../database';
+// import { database } from '../../database'; // Removed database import
 import { supabase } from '../../supabase';
 import { handleDatabaseError } from '../../errors';
 
@@ -37,83 +37,55 @@ export const createNoteSlice: StateCreator<Store> = (set, get) => ({
     }
   },
 
-  moveNote: async (id: string, parentId: string | null, position: number, level: number) => {
-    try {
-      console.log('moveNote called:', {id, parentId, position});
-      console.log('Stack trace:', new Error().stack);
-      const state = get();
-      const currentLevel = state.currentLevel;
-      console.log('Current level before move:', currentLevel);
-      const oldNote = findNoteById(state.notes, id);
-      const oldParentId = oldNote?.parent_id;
-      const oldPosition = oldNote?.position;
+  moveNote: (id: string, parentId: string | null, position: number, level: number) => {
+    const state = get();
+    const oldNote = findNoteById(state.notes, id);
+    const oldParentId = oldNote?.parent_id;
+    const oldPosition = oldNote?.position;
 
-      const newLevel = Math.max(0, level);
+    const newLevel = Math.max(0, level);
 
-      // Validate position
-      const siblings = get().notes.filter(n => n.parent_id === parentId);
-      const maxPosition = siblings.length;
-      const safePosition = Math.max(0, Math.min(position, maxPosition));
+    // Validate position
+    const siblings = get().notes.filter(n => n.parent_id === parentId);
+    const maxPosition = siblings.length;
+    const safePosition = Math.max(0, Math.min(position, maxPosition));
 
-      await database.notes.move(id, parentId, safePosition);
+    // Update the moved note's position in UI only
+    set(state => {
+      const updatedNotes = [...state.notes];
+      const noteIndex = updatedNotes.findIndex(n => n.id === id);
+      if (noteIndex !== -1) {
+          updatedNotes[noteIndex].position = safePosition;
+          updatedNotes[noteIndex].parent_id = parentId;
+      }
 
-      // Reload notes to get updated structure
-      const user = await database.auth.getCurrentUser();
-      const projectId = await database.projects.getCurrentProjectId();
-      if (!projectId) return;
-
-      const notes = await database.notes.loadNotes(user.id, projectId);
-
+      // Shift other notes' positions only within the same parent
+      if (oldParentId === parentId) {
+        updatedNotes.forEach(note => {
+          if (note.parent_id === parentId && note.id !== id) {
+            if (safePosition < oldPosition && note.position >= safePosition && note.position < oldPosition) {
+              note.position++;
+            } else if (safePosition > oldPosition && note.position > oldPosition && note.position <= safePosition) {
+              note.position--;
+            }
+          }
+        });
+      }
       // Add to undo stack
       if (oldNote) {
-        set(state => ({
+        return {
+          notes: updatedNotes,
           undoStack: [...state.undoStack, {
-            execute: async () => get().moveNote(id, parentId, position, level),
-            undo: async () => get().moveNote(id, oldParentId, oldPosition || 0, currentLevel),
+            execute: () => get().moveNote(id, parentId, position, level),
+            undo: () => get().moveNote(id, oldParentId, oldPosition || 0, state.currentLevel),
             description: 'Move note'
           }],
           canUndo: true
-        }));
+        };
       }
+      return { notes: updatedNotes};
 
-      // Update expanded states using the same level, then reduce by 1
-      set(state => {
-        const newExpandedNotes = new Set(state.expandedNotes);
-        const adjustedLevel = Math.max(0, newLevel - 1); // Subtract 1 with minimum of 0
-        const updateExpanded = (notes: Store['notes'], depth = 0) => {
-          notes.forEach(note => {
-            if (note.children.length > 0) {
-              if (depth < adjustedLevel) {
-                newExpandedNotes.add(note.id);
-              } else {
-                newExpandedNotes.delete(note.id);
-              }
-              updateExpanded(note.children, depth + 1);
-            }
-          });
-        };
-
-        updateExpanded(notes);
-
-        return {
-          notes,
-          expandedNotes: newExpandedNotes,
-          currentLevel: adjustedLevel, // Use adjusted level
-          canExpandMore: adjustedLevel < Math.max(...notes.map(note => {
-            let depth = 0;
-            const traverse = (note: Store['notes'][0], currentDepth = 0) => {
-              depth = Math.max(depth, currentDepth);
-              note.children.forEach(child => traverse(child, currentDepth + 1));
-            };
-            traverse(note);
-            return depth;
-          })),
-          canCollapseMore: adjustedLevel > 0
-        };
-      });
-    } catch (error) {
-      throw handleDatabaseError(error, 'Failed to move note');
-    }
+    });
   },
 
   deleteNote: async (id: string) => {
@@ -228,7 +200,7 @@ export const createNoteSlice: StateCreator<Store> = (set, get) => ({
 
   saveNote: async (id: string) => {
     const note = findNoteById(get().notes, id);
-    
+
     // Handle empty new notes
     if (note?.content === '' && !note?.unsavedContent) {
       await database.notes.delete(id);
