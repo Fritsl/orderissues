@@ -64,30 +64,24 @@ export const useDragDrop = (note: Note, onError: (error: Error) => void) => {
     try {
       const rect = e.currentTarget.getBoundingClientRect();
       const isParentZone = e.clientX > rect.right - rect.width * 0.2;
-      const position = e.clientY < rect.top + rect.height / 2 ? note.position : note.position + 1;
+      const uiPosition = note.position;
       
       console.log('Drop detected:', {
         draggedId,
         targetId: note.id,
         isParentZone,
-        targetPosition: position,
-        currentLevel,
+        uiPosition,
+        level: note.level,
         mouseX: e.clientX,
-        mouseY: e.clientY,
-        rect: {
-          top: rect.top,
-          right: rect.right,
-          width: rect.width,
-          height: rect.height
-        }
+        mouseY: e.clientY
       });
       
       if (isParentZone) {
-        console.log('Moving note as child:', { draggedId, newParentId: note.id });
-        moveNote(draggedId, note.id, 0, currentLevel);
+        console.log('Moving note as child:', { draggedId, newParentId: note.id, pos: 0, level: note.level + 1 });
+        moveNote(draggedId, note.id, 0, note.level + 1);
       } else {
-        console.log('Moving note as sibling:', { draggedId, parentId: note.parent_id, position });
-        moveNote(draggedId, note.parent_id, position, currentLevel);
+        console.log('Moving note as sibling:', { draggedId, parentId: note.parent_id, pos: uiPosition, level: note.level });
+        moveNote(draggedId, note.parent_id, uiPosition, note.level);
       }
 
       // Force immediate UI update
