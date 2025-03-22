@@ -78,8 +78,10 @@ export const useDragDrop = (note: Note, onError: (error: Error) => void) => {
         console.log('Moving note as child:', { draggedId, newParentId: note.id, pos: 0, level: note.level + 1 });
         moveNote(draggedId, note.id, 0, note.level + 1);
       } else {
-        console.log('Moving note as sibling:', { draggedId, parentId: note.parent_id, pos: position, level: note.level });
-        moveNote(draggedId, note.parent_id, position, note.level);
+        const draggedNote = document.getElementById(draggedId)?.getAttribute('data-level');
+        const targetLevel = draggedNote ? parseInt(draggedNote) : note.level;
+        console.log('Moving note as sibling:', { draggedId, parentId: note.parent_id, pos: position, level: targetLevel });
+        moveNote(draggedId, note.parent_id, position, targetLevel);
       }
 
       // Force immediate UI update
