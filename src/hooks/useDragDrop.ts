@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Note } from '../types';
 import { useNoteStore } from '../store';
@@ -34,10 +33,10 @@ export const useDragDrop = (note: Note, onError: (error: Error) => void) => {
     const rect = e.currentTarget.getBoundingClientRect();
     const isParentZone = e.clientX > rect.right - rect.width * 0.2;
     const relativeY = e.clientY - rect.top;
-    
+
     setIsDragOver(true);
     setIsParentTarget(isParentZone);
-    
+
     if (isParentZone) {
       setDropZone('child');
     } else {
@@ -57,31 +56,30 @@ export const useDragDrop = (note: Note, onError: (error: Error) => void) => {
     e.preventDefault();
     setIsDragOver(false);
     setIsParentTarget(false);
-    
+
     const draggedId = e.dataTransfer.getData('text/plain');
     if (draggedId === note.id) return;
 
     try {
       const rect = e.currentTarget.getBoundingClientRect();
       const isParentZone = e.clientX > rect.right - rect.width * 0.2;
-      const uiPosition = note.position;
-      
+      const targetPos = parseInt((e.currentTarget as HTMLElement).getAttribute('data-pos') || '0');
+      const position = e.clientY < rect.top + rect.height / 2 ? targetPos : targetPos + 1;
+
       console.log('Drop detected:', {
         draggedId,
         targetId: note.id,
         isParentZone,
-        uiPosition,
-        level: note.level,
-        mouseX: e.clientX,
-        mouseY: e.clientY
+        newPos: position,
+        mouseY: e.clientY < rect.top + rect.height / 2 ? 'above' : 'below'
       });
-      
+
       if (isParentZone) {
         console.log('Moving note as child:', { draggedId, newParentId: note.id, pos: 0, level: note.level + 1 });
         moveNote(draggedId, note.id, 0, note.level + 1);
       } else {
-        console.log('Moving note as sibling:', { draggedId, parentId: note.parent_id, pos: uiPosition, level: note.level });
-        moveNote(draggedId, note.parent_id, uiPosition, note.level);
+        console.log('Moving note as sibling:', { draggedId, parentId: note.parent_id, pos: position, level: note.level });
+        moveNote(draggedId, note.parent_id, position, note.level);
       }
 
       // Force immediate UI update
@@ -100,7 +98,7 @@ export const useDragDrop = (note: Note, onError: (error: Error) => void) => {
       console.error('Drop error:', error);
       onError(error as Error);
     }
-    
+
     setDropZone(null);
   };
 
