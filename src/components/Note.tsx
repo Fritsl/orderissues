@@ -10,6 +10,7 @@ import { DeleteNoteModal } from './DeleteNoteModal';
 import { NoteContent } from './NoteContent';
 import { NoteActions } from './NoteActions';
 import { useDragDrop } from '../hooks/useDragDrop';
+import { useNoteReorder } from '../hooks/useNoteReorder';
 
 interface NoteProps {
   note: NoteType;
@@ -25,6 +26,7 @@ const getDragPosition = (e: React.DragEvent<HTMLDivElement>): 'before' | 'after'
 
 export const Note: React.FC<NoteProps> = ({ note, level, onError }) => {
   const { updateNote, toggleEdit, addNote, saveNote, setEditMode, deleteNote, expandedNotes, moveNote } = useNoteStore();
+  const { reorderNotes } = useNoteReorder();
   const [isSelected, setIsSelected] = useState(false);
   const [isMoveMenuOpen, setIsMoveMenuOpen] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
@@ -41,7 +43,6 @@ export const Note: React.FC<NoteProps> = ({ note, level, onError }) => {
     handleDragOver,
     handleDragLeave,
     handleDrop,
-    handleReorder,
     draggedNote,
     setIsDragOver
   } = useDragDrop(note, onError);
@@ -61,17 +62,16 @@ export const Note: React.FC<NoteProps> = ({ note, level, onError }) => {
           console.log('Drop event:', { 
             noteId: note.id,
             noteContent: note.content,
-            hasHandleReorder: !!handleReorder,
             hasDraggedNote: !!draggedNote
           });
-          if (handleReorder && draggedNote && note.id) {
+          if (draggedNote && note.id) {
             const dropPosition = getDragPosition(e);
-            console.log('Calling handleReorder with:', {
+            console.log('Calling reorderNotes with:', {
               draggedNoteId: draggedNote.id,
               targetNoteId: note.id,
               dropPosition
             });
-            handleReorder(draggedNote.id, note.id, dropPosition);
+            reorderNotes(draggedNote.id, note.id, dropPosition);
           }
           setIsDragOver(false);
         }}
