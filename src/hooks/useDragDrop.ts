@@ -74,7 +74,8 @@ export const useDragDrop = (note: Note, onError: (error: Error) => void) => {
     isDragging,
     isDragOver,
     isParentTarget,
-    dropZone, // Expose dropZone
+    dropZone,
+    draggedNote: note, // Include draggedNote
     handleDragStart,
     handleDragEnd,
     handleDragOver,
