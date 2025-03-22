@@ -63,23 +63,21 @@ export const useDragDrop = (note: Note, onError: (error: Error) => void) => {
     try {
       const rect = e.currentTarget.getBoundingClientRect();
       const isParentZone = e.clientX > rect.right - rect.width * 0.2;
-      const draggedPos = parseInt(document.getElementById(draggedId)?.getAttribute('data-pos') || '0');
       const targetPos = parseInt((e.currentTarget as HTMLElement).getAttribute('data-pos') || '0');
-      const position = e.clientY < rect.top + rect.height / 2 ? targetPos : targetPos + 1;
+      const dropPosition = e.clientY < rect.top + rect.height / 2 ? targetPos : targetPos + 1;
 
       console.log('Drop detected:', {
-        draggedId,
-        draggedPos,
-        targetId: note.id,
-        targetPos,
-        newPos: position,
-        isParentZone
+        draggedNote: draggedId,
+        targetNote: note.id,
+        targetPosition: targetPos,
+        newPosition: dropPosition,
+        makeChild: isParentZone
       });
 
       if (isParentZone) {
         moveNote(draggedId, note.id, 0, note.level + 1);
       } else {
-        moveNote(draggedId, note.parent_id, position, note.level);
+        moveNote(draggedId, note.parent_id, dropPosition, note.level);
       }
 
       // Force immediate UI update
