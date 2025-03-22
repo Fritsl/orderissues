@@ -1,0 +1,215 @@
+Drag started: 
+Object { noteId: "708e02f6-956b-4e9c-840f-67cf71a10d87", noteContent: "10 Minutters pause " }
+useDragDrop.ts:10:13
+Drag over: 
+Object { noteId: "708e02f6-956b-4e9c-840f-67cf71a10d87", clientX: 622, clientY: 327 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "708e02f6-956b-4e9c-840f-67cf71a10d87", clientX: 622, clientY: 322 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "708e02f6-956b-4e9c-840f-67cf71a10d87", clientX: 622, clientY: 313 }
+useDragDrop.ts:22:13
+Drag leave: 
+Object { noteId: "708e02f6-956b-4e9c-840f-67cf71a10d87" }
+useDragDrop.ts:38:13
+Drag over: 
+Object { noteId: "708e02f6-956b-4e9c-840f-67cf71a10d87", clientX: 622, clientY: 307 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "708e02f6-956b-4e9c-840f-67cf71a10d87", clientX: 622, clientY: 301 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "708e02f6-956b-4e9c-840f-67cf71a10d87", clientX: 622, clientY: 301 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "708e02f6-956b-4e9c-840f-67cf71a10d87", clientX: 622, clientY: 298 }
+useDragDrop.ts:22:13
+Drag leave: 
+Object { noteId: "708e02f6-956b-4e9c-840f-67cf71a10d87" }
+useDragDrop.ts:38:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 622, clientY: 280 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 622, clientY: 280 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 622, clientY: 276 }
+useDragDrop.ts:22:13
+Drag leave: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda" }
+useDragDrop.ts:38:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 622, clientY: 272 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 622, clientY: 272 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 622, clientY: 268 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 622, clientY: 265 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 622, clientY: 262 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 622, clientY: 262 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 622, clientY: 262 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 622, clientY: 258 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 622, clientY: 258 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 622, clientY: 255 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 622, clientY: 253 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 622, clientY: 253 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 622, clientY: 252 }
+useDragDrop.ts:22:13
+Drag leave: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda" }
+useDragDrop.ts:38:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 622, clientY: 247 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 622, clientY: 246 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 622, clientY: 242 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 623, clientY: 241 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 623, clientY: 241 }
+useDragDrop.ts:22:13
+Drag leave: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda" }
+useDragDrop.ts:38:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 623, clientY: 238 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 624, clientY: 235 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 624, clientY: 235 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 624, clientY: 234 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 624, clientY: 233 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 624, clientY: 233 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 625, clientY: 229 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 625, clientY: 227 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 625, clientY: 227 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 625, clientY: 226 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 626, clientY: 222 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 626, clientY: 222 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 626, clientY: 222 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 626, clientY: 221 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 626, clientY: 221 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 626, clientY: 220 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 626, clientY: 220 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 626, clientY: 219 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 626, clientY: 218 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 626, clientY: 218 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 626, clientY: 218 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 626, clientY: 217 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 626, clientY: 217 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 626, clientY: 216 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 626, clientY: 216 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 626, clientY: 215 }
+useDragDrop.ts:22:13
+Drag leave: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda" }
+useDragDrop.ts:38:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 626, clientY: 214 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 626, clientY: 214 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 626, clientY: 214 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 626, clientY: 214 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 626, clientY: 214 }
+useDragDrop.ts:22:13
+Drop event: 
+Object { draggedId: "708e02f6-956b-4e9c-840f-67cf71a10d87", targetId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", position: "before" }
+Note.tsx:73:19
+Reordering notes: 
+Object { draggedId: "708e02f6-956b-4e9c-840f-67cf71a10d87", targetId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", position: "before" }
+useNoteReorder.ts:7:13
+Missing notes for reorder: 
+Object { draggedNoteIndex: -1, targetNoteIndex: -1 }
+useNoteReorder.ts:11:15
+Uncaught ReferenceError: setDropZone is not defined
+    onDrop Note.tsx:77
+    React 23
+    <anonymous> main.tsx:7
+2 Note.tsx:82:11
+Drag ended: 
+Object { noteId: "708e02f6-956b-4e9c-840f-67cf71a10d87" }
+useDragDrop.ts:16:13
