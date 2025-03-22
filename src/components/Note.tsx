@@ -17,6 +17,12 @@ interface NoteProps {
   onError: (error: Error) => void;
 }
 
+const getDragPosition = (e: React.DragEvent<HTMLDivElement>): 'before' | 'after' => {
+  const dropTargetRect = e.currentTarget.getBoundingClientRect();
+  const dropPosition = e.clientY < (dropTargetRect.top + dropTargetRect.bottom) / 2 ? 'before' : 'after';
+  return dropPosition;
+};
+
 export const Note: React.FC<NoteProps> = ({ note, level, onError }) => {
   const { updateNote, toggleEdit, addNote, saveNote, setEditMode, deleteNote, expandedNotes, moveNote } = useNoteStore();
   const [isSelected, setIsSelected] = useState(false);
@@ -35,7 +41,9 @@ export const Note: React.FC<NoteProps> = ({ note, level, onError }) => {
     handleDragOver,
     handleDragLeave,
     handleDrop,
-    handleReorder // Added handleReorder
+    handleReorder,
+    draggedNote,
+    setIsDraggedOver
   } = useDragDrop(note, onError);
 
 
@@ -48,6 +56,14 @@ export const Note: React.FC<NoteProps> = ({ note, level, onError }) => {
   return (
     <div className="group relative" id={note.id} ref={noteRef}>
       <div
+        onDrop={(e) => {
+          e.preventDefault();
+          if (handleReorder && draggedNote && note.id) {
+            const dropPosition = getDragPosition(e);
+            handleReorder(draggedNote.id, note.id, dropPosition);
+          }
+          setIsDraggedOver(false);
+        }}
         onClick={(e) => {
           e.preventDefault();
           e.stopPropagation();
@@ -72,14 +88,6 @@ export const Note: React.FC<NoteProps> = ({ note, level, onError }) => {
         onDragEnd={handleDragEnd}
         onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}
-        onDrop={(e) => {
-          e.preventDefault();
-          const draggedId = e.dataTransfer.getData("text/plain");
-          const dropTarget = e.currentTarget;
-          const dropTargetRect = dropTarget.getBoundingClientRect();
-          const dropPosition = e.clientY < (dropTargetRect.top + dropTargetRect.bottom) / 2 ? 'before' : 'after';
-          handleReorder(draggedId, note.id, dropPosition);
-        }}
         className={`flex items-start gap-2 p-3 rounded-lg shadow-md hover:shadow-lg transition-all cursor-move bg-opacity-90 hover:bg-opacity-100 relative
           ${LEVEL_COLORS[Math.min(level, LEVEL_COLORS.length - 1)]} 
           ${isDragging ? 'opacity-50' : ''}
