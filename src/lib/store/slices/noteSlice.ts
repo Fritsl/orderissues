@@ -50,6 +50,7 @@ export const createNoteSlice: StateCreator<Store> = (set, get) => ({
       const noteIndex = updatedNotes.findIndex(n => n.id === id);
       if (noteIndex !== -1) {
           updatedNotes[noteIndex].parent_id = parentId;
+          updatedNotes[noteIndex].level = newLevel;
       }
 
 

@@ -12,13 +12,13 @@ export const useNoteMovement = (note: Note) => {
 
   const handleMoveUp = () => {
     if (currentIndex > 0) {
-      moveNote(note.id, note.parent_id, currentIndex - 1);
+      moveNote(note.id, note.parent_id, note.level);
     }
   };
 
   const handleMoveDown = () => {
     if (currentIndex < maxIndex) {
-      moveNote(note.id, note.parent_id, currentIndex + 1);
+      moveNote(note.id, note.parent_id, note.level);
     }
   };
 
