@@ -58,17 +58,34 @@ BEGIN
   IF v_old_parent_id IS NOT DISTINCT FROM p_new_parent_id THEN
     -- If no actual movement, return early
     IF v_old_position = p_new_position THEN
+      RAISE NOTICE 'No movement needed - same position: %', p_new_position;
       RETURN;
     END IF;
 
+    RAISE NOTICE 'Moving note % from position % to position % under parent %', 
+      p_note_id, v_old_position, p_new_position, p_new_parent_id;
+
+    -- Get all current positions for debugging
+    FOR v_rec IN (
+      SELECT id, position 
+      FROM notes 
+      WHERE project_id = v_project_id 
+      AND parent_id IS NOT DISTINCT FROM p_new_parent_id
+      ORDER BY position
+    ) LOOP
+      RAISE NOTICE 'Current note positions - ID: %, Position: %', v_rec.id, v_rec.position;
+    END LOOP;
+
     -- Find the note at the target position for swapping
-    SELECT id INTO v_target_note_id
+    SELECT id, position INTO v_target_note_id, v_target_position
     FROM notes
     WHERE project_id = v_project_id
     AND parent_id IS NOT DISTINCT FROM p_new_parent_id
     AND position = p_new_position;
 
     IF v_target_note_id IS NOT NULL THEN
+      RAISE NOTICE 'Found note at target position - ID: %, Position: %', v_target_note_id, v_target_position;
+      
       -- Swap positions with target note
       UPDATE notes
       SET position = 
@@ -78,13 +95,30 @@ BEGIN
         END,
         updated_at = CURRENT_TIMESTAMP
       WHERE id IN (p_note_id, v_target_note_id);
+      
+      RAISE NOTICE 'Swapped positions between notes % and %', p_note_id, v_target_note_id;
     ELSE
+      RAISE NOTICE 'No note found at target position %', p_new_position;
+      
       -- No note at target position, just move
       UPDATE notes
       SET position = p_new_position,
           updated_at = CURRENT_TIMESTAMP
       WHERE id = p_note_id;
+      
+      RAISE NOTICE 'Moved note % to position %', p_note_id, p_new_position;
     END IF;
+
+    -- Show final positions after update
+    FOR v_rec IN (
+      SELECT id, position 
+      FROM notes 
+      WHERE project_id = v_project_id 
+      AND parent_id IS NOT DISTINCT FROM p_new_parent_id
+      ORDER BY position
+    ) LOOP
+      RAISE NOTICE 'Final note positions - ID: %, Position: %', v_rec.id, v_rec.position;
+    END LOOP;
 
   -- Moving to different parent
   ELSE
