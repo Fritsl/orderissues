@@ -272,10 +272,8 @@ export const createNoteSlice: StateCreator<Store> = (set, get) => ({
     // Save the level to the database
     const saveLevel = async () => {
       try {
-        const projectId = await database.projects.getCurrentProjectId();
-        if (projectId) {
-          await database.projects.updateLastLevel(projectId, newLevel);
-        }
+        // Save level to localStorage instead since we don't need database persistence for this
+        localStorage.setItem('currentLevel', newLevel.toString());
       } catch (error) {
         console.error('Failed to save level:', error);
       }
