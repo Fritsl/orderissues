@@ -1,0 +1,421 @@
+[vite] connected. client:614:15
+Download the React DevTools for a better development experience: https://reactjs.org/link/react-devtools react-dom_client.js:21551:25
+setCurrentLevel called with level: 3 noteSlice.ts:212:13
+Stack trace: setCurrentLevel@https://8dc6a9c8-3123-4329-afa6-c77823307628-00-2rvnkb08r3b3s.riker.replit.dev:5173/src/lib/store/slices/noteSlice.ts?t=1742641154690:213:33
+loadNotes@https://8dc6a9c8-3123-4329-afa6-c77823307628-00-2rvnkb08r3b3s.riker.replit.dev:5173/src/lib/store/slices/projectSlice.ts:140:17
+async*App/<@https://8dc6a9c8-3123-4329-afa6-c77823307628-00-2rvnkb08r3b3s.riker.replit.dev:5173/src/App.tsx?t=1742641736848:115:7
+commitHookEffectListMount@https://8dc6a9c8-3123-4329-afa6-c77823307628-00-2rvnkb08r3b3s.riker.replit.dev:5173/node_modules/.vite/deps/react-dom_client.js?v=5a6c2cfc:16915:34
+commitPassiveMountOnFiber@https://8dc6a9c8-3123-4329-afa6-c77823307628-00-2rvnkb08r3b3s.riker.replit.dev:5173/node_modules/.vite/deps/react-dom_client.js?v=5a6c2cfc:18156:44
+commitPassiveMountEffects_complete@https://8dc6a9c8-3123-4329-afa6-c77823307628-00-2rvnkb08r3b3s.riker.replit.dev:5173/node_modules/.vite/deps/react-dom_client.js?v=5a6c2cfc:18129:42
+commitPassiveMountEffects_begin@https://8dc6a9c8-3123-4329-afa6-c77823307628-00-2rvnkb08r3b3s.riker.replit.dev:5173/node_modules/.vite/deps/react-dom_client.js?v=5a6c2cfc:18119:49
+commitPassiveMountEffects@https://8dc6a9c8-3123-4329-afa6-c77823307628-00-2rvnkb08r3b3s.riker.replit.dev:5173/node_modules/.vite/deps/react-dom_client.js?v=5a6c2cfc:18109:42
+flushPassiveEffectsImpl@https://8dc6a9c8-3123-4329-afa6-c77823307628-00-2rvnkb08r3b3s.riker.replit.dev:5173/node_modules/.vite/deps/react-dom_client.js?v=5a6c2cfc:19490:36
+flushPassiveEffects@https://8dc6a9c8-3123-4329-afa6-c77823307628-00-2rvnkb08r3b3s.riker.replit.dev:5173/node_modules/.vite/deps/react-dom_client.js?v=5a6c2cfc:19447:22
+node_modules/react-dom/cjs/react-dom.development.js/commitRootImpl/<@https://8dc6a9c8-3123-4329-afa6-c77823307628-00-2rvnkb08r3b3s.riker.replit.dev:5173/node_modules/.vite/deps/react-dom_client.js?v=5a6c2cfc:19328:17
+workLoop@https://8dc6a9c8-3123-4329-afa6-c77823307628-00-2rvnkb08r3b3s.riker.replit.dev:5173/node_modules/.vite/deps/react-dom_client.js?v=5a6c2cfc:197:50
+flushWork@https://8dc6a9c8-3123-4329-afa6-c77823307628-00-2rvnkb08r3b3s.riker.replit.dev:5173/node_modules/.vite/deps/react-dom_client.js?v=5a6c2cfc:176:22
+performWorkUntilDeadline@https://8dc6a9c8-3123-4329-afa6-c77823307628-00-2rvnkb08r3b3s.riker.replit.dev:5173/node_modules/.vite/deps/react-dom_client.js?v=5a6c2cfc:384:29
+EventHandlerNonNull*node_modules/scheduler/cjs/scheduler.development.js/<@https://8dc6a9c8-3123-4329-afa6-c77823307628-00-2rvnkb08r3b3s.riker.replit.dev:5173/node_modules/.vite/deps/react-dom_client.js?v=5a6c2cfc:405:11
+node_modules/scheduler/cjs/scheduler.development.js@https://8dc6a9c8-3123-4329-afa6-c77823307628-00-2rvnkb08r3b3s.riker.replit.dev:5173/node_modules/.vite/deps/react-dom_client.js?v=5a6c2cfc:453:9
+__require@https://8dc6a9c8-3123-4329-afa6-c77823307628-00-2rvnkb08r3b3s.riker.replit.dev:5173/node_modules/.vite/deps/chunk-V4OQ3NZ2.js?v=5a6c2cfc:11:50
+node_modules/scheduler/index.js@https://8dc6a9c8-3123-4329-afa6-c77823307628-00-2rvnkb08r3b3s.riker.replit.dev:5173/node_modules/.vite/deps/react-dom_client.js?v=5a6c2cfc:465:24
+__require@https://8dc6a9c8-3123-4329-afa6-c77823307628-00-2rvnkb08r3b3s.riker.replit.dev:5173/node_modules/.vite/deps/chunk-V4OQ3NZ2.js?v=5a6c2cfc:11:50
+node_modules/react-dom/cjs/react-dom.development.js/<@https://8dc6a9c8-3123-4329-afa6-c77823307628-00-2rvnkb08r3b3s.riker.replit.dev:5173/node_modules/.vite/deps/react-dom_client.js?v=5a6c2cfc:481:25
+node_modules/react-dom/cjs/react-dom.development.js@https://8dc6a9c8-3123-4329-afa6-c77823307628-00-2rvnkb08r3b3s.riker.replit.dev:5173/node_modules/.vite/deps/react-dom_client.js?v=5a6c2cfc:21571:9
+__require@https://8dc6a9c8-3123-4329-afa6-c77823307628-00-2rvnkb08r3b3s.riker.replit.dev:5173/node_modules/.vite/deps/chunk-V4OQ3NZ2.js?v=5a6c2cfc:11:50
+node_modules/react-dom/index.js@https://8dc6a9c8-3123-4329-afa6-c77823307628-00-2rvnkb08r3b3s.riker.replit.dev:5173/node_modules/.vite/deps/react-dom_client.js?v=5a6c2cfc:21584:24
+__require@https://8dc6a9c8-3123-4329-afa6-c77823307628-00-2rvnkb08r3b3s.riker.replit.dev:5173/node_modules/.vite/deps/chunk-V4OQ3NZ2.js?v=5a6c2cfc:11:50
+node_modules/react-dom/client.js@https://8dc6a9c8-3123-4329-afa6-c77823307628-00-2rvnkb08r3b3s.riker.replit.dev:5173/node_modules/.vite/deps/react-dom_client.js?v=5a6c2cfc:21592:13
+__require@https://8dc6a9c8-3123-4329-afa6-c77823307628-00-2rvnkb08r3b3s.riker.replit.dev:5173/node_modules/.vite/deps/chunk-V4OQ3NZ2.js?v=5a6c2cfc:11:50
+@https://8dc6a9c8-3123-4329-afa6-c77823307628-00-2rvnkb08r3b3s.riker.replit.dev:5173/node_modules/.vite/deps/react-dom_client.js?v=5a6c2cfc:21618:16
+noteSlice.ts:213:13
+Setting level to: 0 from original: 3 noteSlice.ts:225:13
+setCurrentLevel called with level: 1 noteSlice.ts:212:13
+Stack trace: setCurrentLevel@https://8dc6a9c8-3123-4329-afa6-c77823307628-00-2rvnkb08r3b3s.riker.replit.dev:5173/src/lib/store/slices/noteSlice.ts?t=1742641154690:213:33
+expandOneLevel@https://8dc6a9c8-3123-4329-afa6-c77823307628-00-2rvnkb08r3b3s.riker.replit.dev:5173/src/lib/store/slices/noteSlice.ts?t=1742641154690:257:18
+App/<@https://8dc6a9c8-3123-4329-afa6-c77823307628-00-2rvnkb08r3b3s.riker.replit.dev:5173/src/App.tsx?t=1742641736848:110:7
+commitHookEffectListMount@https://8dc6a9c8-3123-4329-afa6-c77823307628-00-2rvnkb08r3b3s.riker.replit.dev:5173/node_modules/.vite/deps/react-dom_client.js?v=5a6c2cfc:16915:34
+commitPassiveMountOnFiber@https://8dc6a9c8-3123-4329-afa6-c77823307628-00-2rvnkb08r3b3s.riker.replit.dev:5173/node_modules/.vite/deps/react-dom_client.js?v=5a6c2cfc:18156:44
+commitPassiveMountEffects_complete@https://8dc6a9c8-3123-4329-afa6-c77823307628-00-2rvnkb08r3b3s.riker.replit.dev:5173/node_modules/.vite/deps/react-dom_client.js?v=5a6c2cfc:18129:42
+commitPassiveMountEffects_begin@https://8dc6a9c8-3123-4329-afa6-c77823307628-00-2rvnkb08r3b3s.riker.replit.dev:5173/node_modules/.vite/deps/react-dom_client.js?v=5a6c2cfc:18119:49
+commitPassiveMountEffects@https://8dc6a9c8-3123-4329-afa6-c77823307628-00-2rvnkb08r3b3s.riker.replit.dev:5173/node_modules/.vite/deps/react-dom_client.js?v=5a6c2cfc:18109:42
+flushPassiveEffectsImpl@https://8dc6a9c8-3123-4329-afa6-c77823307628-00-2rvnkb08r3b3s.riker.replit.dev:5173/node_modules/.vite/deps/react-dom_client.js?v=5a6c2cfc:19490:36
+flushPassiveEffects@https://8dc6a9c8-3123-4329-afa6-c77823307628-00-2rvnkb08r3b3s.riker.replit.dev:5173/node_modules/.vite/deps/react-dom_client.js?v=5a6c2cfc:19447:22
+commitRootImpl@https://8dc6a9c8-3123-4329-afa6-c77823307628-00-2rvnkb08r3b3s.riker.replit.dev:5173/node_modules/.vite/deps/react-dom_client.js?v=5a6c2cfc:19416:13
+commitRoot@https://8dc6a9c8-3123-4329-afa6-c77823307628-00-2rvnkb08r3b3s.riker.replit.dev:5173/node_modules/.vite/deps/react-dom_client.js?v=5a6c2cfc:19277:27
+performSyncWorkOnRoot@https://8dc6a9c8-3123-4329-afa6-c77823307628-00-2rvnkb08r3b3s.riker.replit.dev:5173/node_modules/.vite/deps/react-dom_client.js?v=5a6c2cfc:18895:21
+flushSyncCallbacks@https://8dc6a9c8-3123-4329-afa6-c77823307628-00-2rvnkb08r3b3s.riker.replit.dev:5173/node_modules/.vite/deps/react-dom_client.js?v=5a6c2cfc:9119:30
+node_modules/react-dom/cjs/react-dom.development.js/ensureRootIsScheduled/<@https://8dc6a9c8-3123-4329-afa6-c77823307628-00-2rvnkb08r3b3s.riker.replit.dev:5173/node_modules/.vite/deps/react-dom_client.js?v=5a6c2cfc:18627:21
+VoidFunction*ensureRootIsScheduled@https://8dc6a9c8-3123-4329-afa6-c77823307628-00-2rvnkb08r3b3s.riker.replit.dev:5173/node_modules/.vite/deps/react-dom_client.js?v=5a6c2cfc:18625:34
+scheduleUpdateOnFiber@https://8dc6a9c8-3123-4329-afa6-c77823307628-00-2rvnkb08r3b3s.riker.replit.dev:5173/node_modules/.vite/deps/react-dom_client.js?v=5a6c2cfc:18562:34
+forceStoreRerender@https://8dc6a9c8-3123-4329-afa6-c77823307628-00-2rvnkb08r3b3s.riker.replit.dev:5173/node_modules/.vite/deps/react-dom_client.js?v=5a6c2cfc:11999:34
+handleStoreChange@https://8dc6a9c8-3123-4329-afa6-c77823307628-00-2rvnkb08r3b3s.riker.replit.dev:5173/node_modules/.vite/deps/react-dom_client.js?v=5a6c2cfc:11981:33
+createStoreImpl/setState/<@https://8dc6a9c8-3123-4329-afa6-c77823307628-00-2rvnkb08r3b3s.riker.replit.dev:5173/node_modules/.vite/deps/zustand.js?v=5a6c2cfc:173:47
+setState@https://8dc6a9c8-3123-4329-afa6-c77823307628-00-2rvnkb08r3b3s.riker.replit.dev:5173/node_modules/.vite/deps/zustand.js?v=5a6c2cfc:173:17
+loadNotes@https://8dc6a9c8-3123-4329-afa6-c77823307628-00-2rvnkb08r3b3s.riker.replit.dev:5173/src/lib/store/slices/projectSlice.ts:144:14
+async*App/<@https://8dc6a9c8-3123-4329-afa6-c77823307628-00-2rvnkb08r3b3s.riker.replit.dev:5173/src/App.tsx?t=1742641736848:115:7
+commitHookEffectListMount@https://8dc6a9c8-3123-4329-afa6-c77823307628-00-2rvnkb08r3b3s.riker.replit.dev:5173/node_modules/.vite/deps/react-dom_client.js?v=5a6c2cfc:16915:34
+commitPassiveMountOnFiber@https://8dc6a9c8-3123-4329-afa6-c77823307628-00-2rvnkb08r3b3s.riker.replit.dev:5173/node_modules/.vite/deps/react-dom_client.js?v=5a6c2cfc:18156:44
+commitPassiveMountEffects_complete@https://8dc6a9c8-3123-4329-afa6-c77823307628-00-2rvnkb08r3b3s.riker.replit.dev:5173/node_modules/.vite/deps/react-dom_client.js?v=5a6c2cfc:18129:42
+commitPassiveMountEffects_begin@https://8dc6a9c8-3123-4329-afa6-c77823307628-00-2rvnkb08r3b3s.riker.replit.dev:5173/node_modules/.vite/deps/react-dom_client.js?v=5a6c2cfc:18119:49
+commitPassiveMountEffects@https://8dc6a9c8-3123-4329-afa6-c77823307628-00-2rvnkb08r3b3s.riker.replit.dev:5173/node_modules/.vite/deps/react-dom_client.js?v=5a6c2cfc:18109:42
+flushPassiveEffectsImpl@https://8dc6a9c8-3123-4329-afa6-c77823307628-00-2rvnkb08r3b3s.riker.replit.dev:5173/node_modules/.vite/deps/react-dom_client.js?v=5a6c2cfc:19490:36
+flushPassiveEffects@https://8dc6a9c8-3123-4329-afa6-c77823307628-00-2rvnkb08r3b3s.riker.replit.dev:5173/node_modules/.vite/deps/react-dom_client.js?v=5a6c2cfc:19447:22
+node_modules/react-dom/cjs/react-dom.development.js/commitRootImpl/<@https://8dc6a9c8-3123-4329-afa6-c77823307628-00-2rvnkb08r3b3s.riker.replit.dev:5173/node_modules/.vite/deps/react-dom_client.js?v=5a6c2cfc:19328:17
+workLoop@https://8dc6a9c8-3123-4329-afa6-c77823307628-00-2rvnkb08r3b3s.riker.replit.dev:5173/node_modules/.vite/deps/react-dom_client.js?v=5a6c2cfc:197:50
+flushWork@https://8dc6a9c8-3123-4329-afa6-c77823307628-00-2rvnkb08r3b3s.riker.replit.dev:5173/node_modules/.vite/deps/react-dom_client.js?v=5a6c2cfc:176:22
+performWorkUntilDeadline@https://8dc6a9c8-3123-4329-afa6-c77823307628-00-2rvnkb08r3b3s.riker.replit.dev:5173/node_modules/.vite/deps/react-dom_client.js?v=5a6c2cfc:384:29
+EventHandlerNonNull*node_modules/scheduler/cjs/scheduler.development.js/<@https://8dc6a9c8-3123-4329-afa6-c77823307628-00-2rvnkb08r3b3s.riker.replit.dev:5173/node_modules/.vite/deps/react-dom_client.js?v=5a6c2cfc:405:11
+node_modules/scheduler/cjs/scheduler.development.js@https://8dc6a9c8-3123-4329-afa6-c77823307628-00-2rvnkb08r3b3s.riker.replit.dev:5173/node_modules/.vite/deps/react-dom_client.js?v=5a6c2cfc:453:9
+__require@https://8dc6a9c8-3123-4329-afa6-c77823307628-00-2rvnkb08r3b3s.riker.replit.dev:5173/node_modules/.vite/deps/chunk-V4OQ3NZ2.js?v=5a6c2cfc:11:50
+node_modules/scheduler/index.js@https://8dc6a9c8-3123-4329-afa6-c77823307628-00-2rvnkb08r3b3s.riker.replit.dev:5173/node_modules/.vite/deps/react-dom_client.js?v=5a6c2cfc:465:24
+__require@https://8dc6a9c8-3123-4329-afa6-c77823307628-00-2rvnkb08r3b3s.riker.replit.dev:5173/node_modules/.vite/deps/chunk-V4OQ3NZ2.js?v=5a6c2cfc:11:50
+node_modules/react-dom/cjs/react-dom.development.js/<@https://8dc6a9c8-3123-4329-afa6-c77823307628-00-2rvnkb08r3b3s.riker.replit.dev:5173/node_modules/.vite/deps/react-dom_client.js?v=5a6c2cfc:481:25
+node_modules/react-dom/cjs/react-dom.development.js@https://8dc6a9c8-3123-4329-afa6-c77823307628-00-2rvnkb08r3b3s.riker.replit.dev:5173/node_modules/.vite/deps/react-dom_client.js?v=5a6c2cfc:21571:9
+__require@https://8dc6a9c8-3123-4329-afa6-c77823307628-00-2rvnkb08r3b3s.riker.replit.dev:5173/node_modules/.vite/deps/chunk-V4OQ3NZ2.js?v=5a6c2cfc:11:50
+node_modules/react-dom/index.js@https://8dc6a9c8-3123-4329-afa6-c77823307628-00-2rvnkb08r3b3s.riker.replit.dev:5173/node_modules/.vite/deps/react-dom_client.js?v=5a6c2cfc:21584:24
+__require@https://8dc6a9c8-3123-4329-afa6-c77823307628-00-2rvnkb08r3b3s.riker.replit.dev:5173/node_modules/.vite/deps/chunk-V4OQ3NZ2.js?v=5a6c2cfc:11:50
+node_modules/react-dom/client.js@https://8dc6a9c8-3123-4329-afa6-c77823307628-00-2rvnkb08r3b3s.riker.replit.dev:5173/node_modules/.vite/deps/react-dom_client.js?v=5a6c2cfc:21592:13
+__require@https://8dc6a9c8-3123-4329-afa6-c77823307628-00-2rvnkb08r3b3s.riker.replit.dev:5173/node_modules/.vite/deps/chunk-V4OQ3NZ2.js?v=5a6c2cfc:11:50
+@https://8dc6a9c8-3123-4329-afa6-c77823307628-00-2rvnkb08r3b3s.riker.replit.dev:5173/node_modules/.vite/deps/react-dom_client.js?v=5a6c2cfc:21618:16
+noteSlice.ts:213:13
+Setting level to: 1 from original: 1 noteSlice.ts:225:13
+Drag started: 
+Object { noteId: "708e02f6-956b-4e9c-840f-67cf71a10d87", noteContent: "10 Minutters pause " }
+useDragDrop.ts:10:13
+Drag over: 
+Object { noteId: "708e02f6-956b-4e9c-840f-67cf71a10d87", clientX: 565, clientY: 347 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "708e02f6-956b-4e9c-840f-67cf71a10d87", clientX: 565, clientY: 347 }
+useDragDrop.ts:22:13
+Drag leave: 
+Object { noteId: "708e02f6-956b-4e9c-840f-67cf71a10d87" }
+useDragDrop.ts:38:13
+Drag over: 
+Object { noteId: "708e02f6-956b-4e9c-840f-67cf71a10d87", clientX: 564, clientY: 338 }
+useDragDrop.ts:22:13
+Drag leave: 
+Object { noteId: "708e02f6-956b-4e9c-840f-67cf71a10d87" }
+useDragDrop.ts:38:13
+Drag over: 
+Object { noteId: "708e02f6-956b-4e9c-840f-67cf71a10d87", clientX: 563, clientY: 334 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "708e02f6-956b-4e9c-840f-67cf71a10d87", clientX: 563, clientY: 334 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "708e02f6-956b-4e9c-840f-67cf71a10d87", clientX: 562, clientY: 329 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "708e02f6-956b-4e9c-840f-67cf71a10d87", clientX: 562, clientY: 323 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "708e02f6-956b-4e9c-840f-67cf71a10d87", clientX: 560, clientY: 316 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "708e02f6-956b-4e9c-840f-67cf71a10d87", clientX: 560, clientY: 316 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "708e02f6-956b-4e9c-840f-67cf71a10d87", clientX: 559, clientY: 310 }
+useDragDrop.ts:22:13
+Drag leave: 
+Object { noteId: "708e02f6-956b-4e9c-840f-67cf71a10d87" }
+useDragDrop.ts:38:13
+Drag over: 
+Object { noteId: "708e02f6-956b-4e9c-840f-67cf71a10d87", clientX: 559, clientY: 304 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "708e02f6-956b-4e9c-840f-67cf71a10d87", clientX: 559, clientY: 304 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "708e02f6-956b-4e9c-840f-67cf71a10d87", clientX: 559, clientY: 298 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "708e02f6-956b-4e9c-840f-67cf71a10d87", clientX: 559, clientY: 298 }
+useDragDrop.ts:22:13
+Drag leave: 
+Object { noteId: "708e02f6-956b-4e9c-840f-67cf71a10d87" }
+useDragDrop.ts:38:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 559, clientY: 284 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 561, clientY: 274 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 561, clientY: 274 }
+useDragDrop.ts:22:13
+Drag leave: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda" }
+useDragDrop.ts:38:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 562, clientY: 270 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 562, clientY: 268 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 562, clientY: 267 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 562, clientY: 267 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 562, clientY: 265 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 562, clientY: 264 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 562, clientY: 264 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 562, clientY: 262 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 563, clientY: 261 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 563, clientY: 260 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 564, clientY: 258 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 565, clientY: 257 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 565, clientY: 256 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 565, clientY: 256 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 565, clientY: 254 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 565, clientY: 254 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 565, clientY: 254 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 566, clientY: 253 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 566, clientY: 252 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 566, clientY: 252 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 567, clientY: 251 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 567, clientY: 249 }
+useDragDrop.ts:22:13
+Drag leave: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda" }
+useDragDrop.ts:38:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 568, clientY: 248 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 568, clientY: 247 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 568, clientY: 247 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 568, clientY: 246 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 569, clientY: 245 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 569, clientY: 245 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 569, clientY: 243 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 570, clientY: 242 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 570, clientY: 242 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 570, clientY: 242 }
+useDragDrop.ts:22:13
+Drag leave: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda" }
+useDragDrop.ts:38:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 571, clientY: 238 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 571, clientY: 238 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 571, clientY: 238 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 571, clientY: 237 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 571, clientY: 234 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 572, clientY: 233 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 573, clientY: 232 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 573, clientY: 230 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 573, clientY: 230 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 574, clientY: 229 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 574, clientY: 228 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 574, clientY: 228 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 574, clientY: 227 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 574, clientY: 226 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 574, clientY: 226 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 575, clientY: 225 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 575, clientY: 224 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 575, clientY: 224 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 575, clientY: 223 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 575, clientY: 222 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 575, clientY: 222 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 575, clientY: 222 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 575, clientY: 222 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 575, clientY: 222 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 575, clientY: 221 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 575, clientY: 220 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 575, clientY: 220 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 576, clientY: 220 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 576, clientY: 219 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 576, clientY: 219 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 576, clientY: 219 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 576, clientY: 219 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 576, clientY: 219 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 576, clientY: 219 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 576, clientY: 219 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 576, clientY: 219 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 576, clientY: 219 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 576, clientY: 219 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 576, clientY: 219 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 576, clientY: 219 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 576, clientY: 219 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 576, clientY: 219 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 576, clientY: 219 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 576, clientY: 219 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 576, clientY: 219 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 576, clientY: 219 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 576, clientY: 219 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 576, clientY: 219 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 576, clientY: 219 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 576, clientY: 219 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 576, clientY: 219 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 576, clientY: 219 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 576, clientY: 219 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 576, clientY: 219 }
+useDragDrop.ts:22:13
+Drop event: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", noteContent: "Introduktion og hvordan bruger I kunstig intelligens idag?", hasHandleReorder: false, hasDraggedNote: true }
+Note.tsx:68:19
+Drag ended: 
+Object { noteId: "708e02f6-956b-4e9c-840f-67cf71a10d87" }
+useDragDrop.ts:16:13
