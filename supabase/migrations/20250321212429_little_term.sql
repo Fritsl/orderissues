@@ -28,76 +28,61 @@ DECLARE
   v_old_parent_id uuid;
   v_old_position integer;
   v_max_position integer;
-  v_target_note_id uuid;
 BEGIN
-  -- Lock the affected notes to prevent race conditions
-  PERFORM pg_advisory_xact_lock(hashtext('move_note'::text));
-
   -- Get current note info
   SELECT project_id, parent_id, position
   INTO v_project_id, v_old_parent_id, v_old_position
   FROM notes
-  WHERE id = p_note_id
-  FOR UPDATE;
+  WHERE id = p_note_id;
 
-  -- Debug logging
-  RAISE NOTICE 'Move request - Note ID: %, Old Position: %, New Position: %, Parent ID: %',
-    p_note_id, v_old_position, p_new_position, p_new_parent_id;
+  IF v_project_id IS NULL THEN
+    RAISE EXCEPTION 'Note not found';
+  END IF;
 
-  -- Log current positions
-  FOR note_rec IN 
-    SELECT id, position, parent_id
-    FROM notes 
-    WHERE project_id = v_project_id 
-    AND parent_id IS NOT DISTINCT FROM p_new_parent_id
-    ORDER BY position
-  LOOP
-    RAISE NOTICE 'Before move - Note ID: %, Position: %, Parent: %',
-      note_rec.id, note_rec.position, note_rec.parent_id;
-  END LOOP;
+  -- Get max position at target level (excluding the moving note)
+  SELECT COALESCE(MAX(position), -1)
+  INTO v_max_position
+  FROM notes
+  WHERE project_id = v_project_id
+  AND parent_id IS NOT DISTINCT FROM p_new_parent_id
+  AND id != p_note_id;
+
+  -- Validate position
+  IF p_new_position < 0 THEN
+    p_new_position := 0;
+  ELSIF p_new_position > v_max_position + 1 THEN
+    p_new_position := v_max_position + 1;
+  END IF;
 
   -- Moving within same parent
   IF v_old_parent_id IS NOT DISTINCT FROM p_new_parent_id THEN
-    RAISE NOTICE 'Moving within same parent - old_pos: %, new_pos: %, note_id: %', 
-      v_old_position, p_new_position, p_note_id;
-
     -- If no actual movement, return early
     IF v_old_position = p_new_position THEN
-      RAISE NOTICE 'No position change needed';
       RETURN;
     END IF;
-
-    -- Log positions before update
-    FOR note_rec IN 
-      SELECT id, position 
-      FROM notes 
-      WHERE project_id = v_project_id 
-      AND parent_id IS NOT DISTINCT FROM p_new_parent_id
-      ORDER BY position
-    LOOP
-      RAISE NOTICE 'Before move - Note ID: %, Position: %', note_rec.id, note_rec.position;
-    END LOOP;
 
     -- Moving up (to a lower position number)
     IF p_new_position < v_old_position THEN
       UPDATE notes
       SET position = position + 1
       WHERE project_id = v_project_id
-        AND parent_id IS NOT DISTINCT FROM p_new_parent_id
-        AND position >= p_new_position
-        AND position < v_old_position;
+      AND parent_id IS NOT DISTINCT FROM p_new_parent_id
+      AND position >= p_new_position
+      AND position < v_old_position
+      AND id != p_note_id;
 
     -- Moving down (to a higher position number)
-    ELSIF p_new_position > v_old_position THEN
+    ELSE
       UPDATE notes
       SET position = position - 1
       WHERE project_id = v_project_id
-        AND parent_id IS NOT DISTINCT FROM p_new_parent_id
-        AND position > v_old_position
-        AND position <= p_new_position;
+      AND parent_id IS NOT DISTINCT FROM p_new_parent_id
+      AND position > v_old_position
+      AND position <= p_new_position
+      AND id != p_note_id;
     END IF;
 
-    -- Finally move the note to its intended position
+    -- Move the note to its new position
     UPDATE notes
     SET position = p_new_position,
         updated_at = CURRENT_TIMESTAMP
@@ -109,23 +94,27 @@ BEGIN
     UPDATE notes
     SET position = position - 1
     WHERE project_id = v_project_id
-      AND parent_id IS NOT DISTINCT FROM v_old_parent_id
-      AND position > v_old_position;
+    AND parent_id IS NOT DISTINCT FROM v_old_parent_id
+    AND position > v_old_position;
 
     -- Make space in new parent
     UPDATE notes
     SET position = position + 1
     WHERE project_id = v_project_id
-      AND parent_id IS NOT DISTINCT FROM p_new_parent_id
-      AND position >= p_new_position;
+    AND parent_id IS NOT DISTINCT FROM p_new_parent_id
+    AND position >= p_new_position;
 
     -- Move the note
     UPDATE notes
-    SET 
-      parent_id = p_new_parent_id,
-      position = p_new_position,
-      updated_at = CURRENT_TIMESTAMP
+    SET parent_id = p_new_parent_id,
+        position = p_new_position,
+        updated_at = CURRENT_TIMESTAMP
     WHERE id = p_note_id;
   END IF;
+
+  -- Update project's last modified timestamp
+  UPDATE settings
+  SET last_modified_at = CURRENT_TIMESTAMP
+  WHERE id = v_project_id;
 END;
 $$ LANGUAGE plpgsql;
