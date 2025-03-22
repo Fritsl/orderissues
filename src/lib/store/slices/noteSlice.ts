@@ -39,7 +39,7 @@ export const createNoteSlice: StateCreator<Store> = (set, get) => ({
     }
   },
 
-  moveNote: (id: string, newParentId: string | null, newLevel: number, newPosition: number) => {
+  moveNote: (id: string, newParentId: string | null, newPosition: number, newLevel: number) => {
       console.log('moveNote called:', { id, newParentId, newPosition, newLevel });
       set(state => {
         const draggedNote = state.notes.find(n => n.id === id);
@@ -48,10 +48,9 @@ export const createNoteSlice: StateCreator<Store> = (set, get) => ({
         // Create new array without the dragged note
         let updatedNotes = state.notes.filter(n => n.id !== id);
 
-        // Update the dragged note's UI properties only
+        // Preserve the original level of the note
         const updatedDraggedNote = {
           ...draggedNote,
-          level: newLevel,
           position: newPosition
         };
 
