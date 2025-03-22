@@ -1,0 +1,228 @@
+Drag started: 
+Object { noteId: "708e02f6-956b-4e9c-840f-67cf71a10d87", noteContent: "10 Minutters pause " }
+useDragDrop.ts:10:13
+Drag over: 
+Object { noteId: "708e02f6-956b-4e9c-840f-67cf71a10d87", clientX: 538, clientY: 334 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "708e02f6-956b-4e9c-840f-67cf71a10d87", clientX: 538, clientY: 326 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "708e02f6-956b-4e9c-840f-67cf71a10d87", clientX: 539, clientY: 319 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "708e02f6-956b-4e9c-840f-67cf71a10d87", clientX: 539, clientY: 319 }
+useDragDrop.ts:22:13
+Drag leave: 
+Object { noteId: "708e02f6-956b-4e9c-840f-67cf71a10d87" }
+useDragDrop.ts:38:13
+Drag over: 
+Object { noteId: "708e02f6-956b-4e9c-840f-67cf71a10d87", clientX: 540, clientY: 307 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "708e02f6-956b-4e9c-840f-67cf71a10d87", clientX: 540, clientY: 298 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "708e02f6-956b-4e9c-840f-67cf71a10d87", clientX: 540, clientY: 298 }
+useDragDrop.ts:22:13
+Drag leave: 
+Object { noteId: "708e02f6-956b-4e9c-840f-67cf71a10d87" }
+useDragDrop.ts:38:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 543, clientY: 279 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 543, clientY: 279 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 544, clientY: 275 }
+useDragDrop.ts:22:13
+Drag leave: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda" }
+useDragDrop.ts:38:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 546, clientY: 270 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 546, clientY: 270 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 547, clientY: 260 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 550, clientY: 251 }
+useDragDrop.ts:22:13
+Drag leave: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda" }
+useDragDrop.ts:38:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 551, clientY: 247 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 551, clientY: 247 }
+useDragDrop.ts:22:13
+Drag leave: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda" }
+useDragDrop.ts:38:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 554, clientY: 240 }
+useDragDrop.ts:22:13
+Drag leave: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda" }
+useDragDrop.ts:38:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 554, clientY: 237 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 554, clientY: 237 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 554, clientY: 235 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 555, clientY: 231 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 555, clientY: 231 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 556, clientY: 229 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 556, clientY: 228 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 556, clientY: 228 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 557, clientY: 227 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 557, clientY: 226 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 557, clientY: 226 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 558, clientY: 226 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 558, clientY: 225 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 558, clientY: 224 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 558, clientY: 223 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 558, clientY: 222 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 558, clientY: 222 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 559, clientY: 221 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 559, clientY: 221 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 559, clientY: 220 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 559, clientY: 220 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 560, clientY: 220 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 560, clientY: 220 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 560, clientY: 219 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 560, clientY: 219 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 560, clientY: 218 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 560, clientY: 218 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 560, clientY: 217 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 560, clientY: 217 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 560, clientY: 217 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 560, clientY: 217 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 560, clientY: 217 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 560, clientY: 217 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 560, clientY: 217 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 560, clientY: 217 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 560, clientY: 217 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 560, clientY: 217 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 560, clientY: 217 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 560, clientY: 217 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 560, clientY: 217 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 560, clientY: 217 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 560, clientY: 217 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 560, clientY: 217 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 560, clientY: 217 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 560, clientY: 217 }
+useDragDrop.ts:22:13
+Drag over: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", clientX: 560, clientY: 217 }
+useDragDrop.ts:22:13
+Drop event: 
+Object { noteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", noteContent: "Introduktion og hvordan bruger I kunstig intelligens idag?", hasDraggedNote: true }
+Note.tsx:69:19
+Calling reorderNotes with: 
+Object { draggedNoteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", targetNoteId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", dropPosition: "before" }
+Note.tsx:76:21
+Reordering notes: 
+Object { draggedId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", targetId: "c5dd07d6-fa21-44ca-a514-47556dfb9fda", position: "before" }
+useNoteReorder.ts:7:13
+Found notes: 
+Object { draggedNote: null, targetNote: null }
+useNoteReorder.ts:11:13
+Missing notes for reorder: 
+Object { draggedNote: undefined, targetNote: undefined }
+useNoteReorder.ts:16:15
+Drag ended: 
+Object { noteId: "708e02f6-956b-4e9c-840f-67cf71a10d87" }
+useDragDrop.ts:16:13
