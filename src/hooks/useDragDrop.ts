@@ -79,6 +79,7 @@ export const useDragDrop = (note: Note, onError: (error: Error) => void) => {
     handleDragEnd,
     handleDragOver,
     handleDragLeave,
-    handleDrop
+    handleDrop,
+    setIsDragOver
   };
 };
