@@ -90,6 +90,17 @@ BEGIN
 
   -- Moving to different parent
   ELSE
+    -- First move the note to a temporary high position to avoid conflicts
+    UPDATE notes
+    SET position = (
+      SELECT COALESCE(MAX(position), 0) + 1000 
+      FROM notes 
+      WHERE project_id = v_project_id 
+      AND parent_id IS NOT DISTINCT FROM p_new_parent_id
+    )
+    WHERE id = p_note_id;
+
+
     -- Update positions in old parent
     UPDATE notes
     SET position = position - 1
