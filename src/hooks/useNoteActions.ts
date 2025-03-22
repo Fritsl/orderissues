@@ -1,6 +1,8 @@
 const moveNote = async (noteId: string, newParentId: string | null, newPosition: number) => {
+  console.log('moveNote called with:', { noteId, newParentId, newPosition });
   try {
-    console.log('Moving note:', {
+    // Log at the start
+    console.log('Starting note movement...', {
       noteId,
       newParentId,
       newPosition,
