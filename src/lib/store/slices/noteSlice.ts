@@ -3,7 +3,7 @@ import { Store } from '../types';
 import { findNoteById, removeNoteById } from '../../utils';
 import { supabase } from '../../supabase';
 import { handleDatabaseError } from '../../errors';
-import produce from 'immer';
+import { produce } from 'immer';
 
 export interface Store {
   notes: Note[];
