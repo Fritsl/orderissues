@@ -33,6 +33,7 @@ CREATE TABLE IF NOT EXISTS notes (
   content text DEFAULT '',
   user_id uuid NOT NULL REFERENCES auth.users(id),
   project_id uuid NOT NULL REFERENCES settings(id) ON DELETE CASCADE,
+  parent_id uuid REFERENCES notes(id) ON DELETE CASCADE,
   is_discussion boolean DEFAULT false,
   created_at timestamptz DEFAULT now(),
   updated_at timestamptz DEFAULT now()
@@ -49,6 +50,7 @@ CREATE TABLE IF NOT EXISTS note_images (
 
 -- Create indexes
 CREATE INDEX IF NOT EXISTS notes_project_id_idx ON notes(project_id);
+CREATE INDEX IF NOT EXISTS notes_parent_id_idx ON notes(parent_id);
 CREATE INDEX IF NOT EXISTS note_images_note_id_idx ON note_images(note_id);
 
 -- Enable RLS
