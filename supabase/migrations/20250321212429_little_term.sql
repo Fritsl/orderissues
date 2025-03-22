@@ -1,12 +1,12 @@
 /*
   # Fix note movement function
-  
+
   1. Changes
     - Drop existing function
     - Create new move_note function with correct parameter order
     - Fix parameter names to match client calls
     - Add proper error handling
-    
+
   2. Details
     - Maintains existing functionality
     - Fixes parameter order issue
@@ -58,10 +58,25 @@ BEGIN
 
   -- Moving within same parent
   IF v_old_parent_id IS NOT DISTINCT FROM p_new_parent_id THEN
-    -- First store the note in a temporary negative position to avoid conflicts
-    UPDATE notes
-    SET position = -1
-    WHERE id = p_note_id;
+    RAISE NOTICE 'Moving within same parent - old_pos: %, new_pos: %, note_id: %', 
+      v_old_position, p_new_position, p_note_id;
+
+    -- If no actual movement, return early
+    IF v_old_position = p_new_position THEN
+      RAISE NOTICE 'No position change needed';
+      RETURN;
+    END IF;
+
+    -- Log positions before update
+    FOR note_rec IN 
+      SELECT id, position 
+      FROM notes 
+      WHERE project_id = v_project_id 
+      AND parent_id IS NOT DISTINCT FROM p_new_parent_id
+      ORDER BY position
+    LOOP
+      RAISE NOTICE 'Before move - Note ID: %, Position: %', note_rec.id, note_rec.position;
+    END LOOP;
 
     -- Moving up (to a lower position number)
     IF p_new_position < v_old_position THEN
@@ -71,7 +86,7 @@ BEGIN
         AND parent_id IS NOT DISTINCT FROM p_new_parent_id
         AND position >= p_new_position
         AND position < v_old_position;
-    
+
     -- Moving down (to a higher position number)
     ELSIF p_new_position > v_old_position THEN
       UPDATE notes
