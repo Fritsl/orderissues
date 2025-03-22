@@ -39,45 +39,40 @@ export const createNoteSlice: StateCreator<Store> = (set, get) => ({
     }
   },
 
-  moveNote: (id: string, newParentId: string | null, newLevel: number, newPosition: number) => { // Updated moveNote
+  moveNote: (id: string, newParentId: string | null, newLevel: number, newPosition: number) => {
     console.log('moveNote called:', { id, newParentId, newPosition, newLevel });
     set(state => {
-      const updatedNotes = produce(state.notes, draft => {
-        const noteIndex = draft.findIndex(n => n.id === id);
-        if (noteIndex !== -1) {
-          const note = draft[noteIndex];
-          const oldParentId = note.parent_id;
-          const oldLevel = note.level;
-          const oldPosition = note.position;
+      // Find all notes at the target level with the same parent
+      const siblingNotes = state.notes.filter(n => n.parent_id === newParentId);
+      const draggedNote = state.notes.find(n => n.id === id);
+      
+      if (!draggedNote) return state;
 
+      // Create new array without the dragged note
+      let updatedNotes = state.notes.filter(n => n.id !== id);
+      
+      // Update the dragged note
+      const updatedDraggedNote = {
+        ...draggedNote,
+        parent_id: newParentId,
+        level: newLevel,
+        position: newPosition
+      };
 
-          //Remove from old parent
-          if(oldParentId){
-            const oldParentIndex = draft.findIndex(n => n.id === oldParentId);
-            if(oldParentIndex !== -1){
-              draft[oldParentIndex].children = draft[oldParentIndex].children.filter(n => n.id !== id);
-            }
-          } else {
-            draft.splice(noteIndex, 1);
-          }
+      // Insert the note at the new position
+      updatedNotes.splice(newPosition, 0, updatedDraggedNote);
 
+      // Update positions of all notes
+      updatedNotes = updatedNotes.map((note, index) => ({
+        ...note,
+        position: index
+      }));
 
-          note.parent_id = newParentId;
-          note.level = newLevel;
-          note.position = newPosition; // Add position
-
-
-          //Add to new parent
-          if(newParentId){
-            const newParentIndex = draft.findIndex(n => n.id === newParentId);
-            if(newParentIndex !== -1){
-              draft[newParentIndex].children.splice(newPosition, 0, note);
-            }
-          } else {
-            draft.splice(newPosition, 0, note);
-          }
-        }
-      });
+      return {
+        ...state,
+        notes: updatedNotes
+      };
+    });
 
         // Add to undo stack
         const oldNote = findNoteById(state.notes, id);
