@@ -13,7 +13,7 @@ export const useDragDrop = (note: Note, onError: (error: Error) => void) => {
     console.log('Drag started:', {
       noteId: note.id,
       noteContent: note.content.substring(0, 50),
-      level: note.level
+      pos: note.position
     });
     e.dataTransfer.setData('text/plain', note.id);
     e.dataTransfer.effectAllowed = 'move';
