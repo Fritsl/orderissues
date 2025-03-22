@@ -1,3 +1,24 @@
+
+[data-dropzone="above"] {
+  border-top: 2px solid #4299e1;
+}
+
+[data-dropzone="below"] {
+  border-bottom: 2px solid #4299e1;
+}
+
+[data-dropzone="child"] {
+  border-right: 2px solid #4299e1;
+}
+
+[data-dragging="true"] {
+  opacity: 0.5;
+}
+
+[data-dragover="true"] {
+  background-color: rgba(66, 153, 225, 0.1);
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

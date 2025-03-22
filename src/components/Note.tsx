@@ -58,25 +58,15 @@ export const Note: React.FC<NoteProps> = ({ note, level, onError }) => {
   return (
     <div className="group relative" id={note.id} ref={noteRef}>
       <div
-        onDrop={(e) => {
-          e.preventDefault();
-          e.stopPropagation();
-          const draggedId = e.dataTransfer.getData('text/plain');
-          const rect = e.currentTarget.getBoundingClientRect();
-          const dropPosition = e.clientY < rect.top + rect.height / 2 ? 'before' : 'after';
-
-          console.log('Drop event:', {
-            draggedId,
-            targetId: note.id,
-            position: dropPosition
-          });
-
-          if (draggedId && draggedId !== note.id) {
-            reorderNotes(draggedId, note.id, dropPosition);
-          }
-          setIsDragOver(false);
-          setDropZone(null);
-        }}
+        draggable
+        onDragStart={handleDragStart}
+        onDragEnd={handleDragEnd}
+        onDragOver={handleDragOver}
+        onDragLeave={handleDragLeave}
+        onDrop={handleDrop}
+        data-dropzone={dropZone}
+        data-dragging={isDragging}
+        data-dragover={isDragOver}
         onClick={(e) => {
           e.preventDefault();
           e.stopPropagation();
