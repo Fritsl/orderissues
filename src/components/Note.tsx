@@ -47,9 +47,10 @@ export const Note: React.FC<NoteProps> = ({ note, level, onError }) => {
     <div className="group relative" id={note.id} ref={noteRef}>
       <div
         onClick={(e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          
           if (e.ctrlKey || e.metaKey) {
-            e.preventDefault();
-            e.stopPropagation();
             const url = new URL(window.location.href);
             url.searchParams.set('note', note.id);
             navigator.clipboard.writeText(url.toString());
@@ -60,6 +61,8 @@ export const Note: React.FC<NoteProps> = ({ note, level, onError }) => {
                 element.classList.remove('highlight-note');
               }, 2000);
             }
+          } else {
+            setIsSelected(true);
           }
         }}
         draggable
@@ -68,11 +71,6 @@ export const Note: React.FC<NoteProps> = ({ note, level, onError }) => {
         onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}
         onDrop={handleDrop}
-        onClick={(e) => {
-          e.preventDefault();
-          e.stopPropagation();
-          setIsSelected(true);
-        }}
         className={`flex items-start gap-2 p-3 rounded-lg shadow-md hover:shadow-lg transition-all cursor-move bg-opacity-90 hover:bg-opacity-100 relative
           ${LEVEL_COLORS[Math.min(level, LEVEL_COLORS.length - 1)]} 
           ${isDragging ? 'opacity-50' : ''}
