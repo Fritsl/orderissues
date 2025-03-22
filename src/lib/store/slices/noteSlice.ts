@@ -64,7 +64,6 @@ export const createNoteSlice: StateCreator<Store> = (set, get) => ({
         }));
 
         return {
-          ...state,
           notes: updatedNotes
         };
       });
