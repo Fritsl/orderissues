@@ -61,11 +61,24 @@ export const useDragDrop = (note: Note, onError: (error: Error) => void) => {
       const isParentZone = e.clientX > rect.right - rect.width * 0.2;
       
       if (isParentZone) {
-        await moveNote(draggedId, note.id, 0, currentLevel);
+        moveNote(draggedId, note.id, 0, currentLevel);
       } else {
         const position = e.clientY < rect.top + rect.height / 2 ? note.position : note.position + 1;
-        await moveNote(draggedId, note.parent_id, position, currentLevel);
+        moveNote(draggedId, note.parent_id, position, currentLevel);
       }
+
+      // Force immediate UI update
+      requestAnimationFrame(() => {
+        const element = document.getElementById(draggedId);
+        if (element) {
+          element.style.transition = 'transform 0.2s ease-out';
+          element.style.transform = 'scale(1.02)';
+          setTimeout(() => {
+            element.style.transform = 'scale(1)';
+          }, 200);
+        }
+      });
+
     } catch (error) {
       console.error('Drop error:', error);
       onError(error as Error);
