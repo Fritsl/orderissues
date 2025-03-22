@@ -10,12 +10,24 @@ export const useNoteReorder = () => {
   const reorderNotes = useCallback((draggedId: string, targetId: string, position: 'before' | 'after') => {
     console.log('Reordering notes:', { draggedId, targetId, position });
     
-    // Find notes at their current positions
-    const draggedNoteIndex = notes.findIndex(n => n.id === draggedId);
-    const targetNoteIndex = notes.findIndex(n => n.id === targetId);
+    // Find notes at their current positions by searching through all notes
+    let draggedNoteIndex = -1;
+    let targetNoteIndex = -1;
+    
+    const findNoteIndices = (noteArray: Note[]) => {
+      for (let i = 0; i < noteArray.length; i++) {
+        if (noteArray[i].id === draggedId) draggedNoteIndex = i;
+        if (noteArray[i].id === targetId) targetNoteIndex = i;
+        if (noteArray[i].children) {
+          findNoteIndices(noteArray[i].children);
+        }
+      }
+    };
+    
+    findNoteIndices(notes);
     
     if (draggedNoteIndex === -1 || targetNoteIndex === -1) {
-      console.warn('Missing notes for reorder:', { draggedNoteIndex, targetNoteIndex });
+      console.warn('Missing notes for reorder:', { draggedId, targetId });
       return;
     }
 

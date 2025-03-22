@@ -44,7 +44,8 @@ export const Note: React.FC<NoteProps> = ({ note, level, onError }) => {
     handleDragLeave,
     handleDrop,
     draggedNote,
-    setIsDragOver
+    setIsDragOver,
+    setDropZone // Added this line
   } = useDragDrop(note, onError);
 
 
@@ -63,13 +64,13 @@ export const Note: React.FC<NoteProps> = ({ note, level, onError }) => {
           const draggedId = e.dataTransfer.getData('text/plain');
           const rect = e.currentTarget.getBoundingClientRect();
           const dropPosition = e.clientY < rect.top + rect.height / 2 ? 'before' : 'after';
-          
+
           console.log('Drop event:', {
             draggedId,
             targetId: note.id,
             position: dropPosition
           });
-          
+
           if (draggedId && draggedId !== note.id) {
             reorderNotes(draggedId, note.id, dropPosition);
           }
