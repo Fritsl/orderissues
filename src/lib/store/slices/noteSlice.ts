@@ -36,47 +36,30 @@ export const createNoteSlice: StateCreator<Store> = (set, get) => ({
     }
   },
 
-  moveNote: (id: string, parentId: string | null, position: number, level: number) => {
+  moveNote: (id: string, parentId: string | null, level: number) => {
     const state = get();
     const oldNote = findNoteById(state.notes, id);
     const oldParentId = oldNote?.parent_id;
-    const oldPosition = oldNote?.position;
+
 
     const newLevel = Math.max(0, level);
 
-    // Validate position
-    const siblings = get().notes.filter(n => n.parent_id === parentId);
-    const maxPosition = siblings.length;
-    const safePosition = Math.max(0, Math.min(position, maxPosition));
-
-    // Update the moved note's position in UI only
+    // Update the moved note's parent_id in UI only
     set(state => {
       const updatedNotes = [...state.notes];
       const noteIndex = updatedNotes.findIndex(n => n.id === id);
       if (noteIndex !== -1) {
-          updatedNotes[noteIndex].position = safePosition;
           updatedNotes[noteIndex].parent_id = parentId;
       }
 
-      // Shift other notes' positions only within the same parent
-      if (oldParentId === parentId) {
-        updatedNotes.forEach(note => {
-          if (note.parent_id === parentId && note.id !== id) {
-            if (safePosition < oldPosition && note.position >= safePosition && note.position < oldPosition) {
-              note.position++;
-            } else if (safePosition > oldPosition && note.position > oldPosition && note.position <= safePosition) {
-              note.position--;
-            }
-          }
-        });
-      }
+
       // Add to undo stack
       if (oldNote) {
         return {
           notes: updatedNotes,
           undoStack: [...state.undoStack, {
-            execute: () => get().moveNote(id, parentId, position, level),
-            undo: () => get().moveNote(id, oldParentId, oldPosition || 0, state.currentLevel),
+            execute: () => get().moveNote(id, parentId, level),
+            undo: () => get().moveNote(id, oldParentId, state.currentLevel),
             description: 'Move note'
           }],
           canUndo: true

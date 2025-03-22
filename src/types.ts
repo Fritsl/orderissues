@@ -27,7 +27,7 @@ export interface Note {
   url_display_text?: string | null;
   images?: NoteImage[];
   parent_id?: string | null;
-  position?: number;
+  // position?: number; // Removed
 }
 
 export interface Project {
@@ -79,7 +79,7 @@ export interface NoteState extends BaseState {
   setIsImporting: (value: boolean) => void;
   updateNote: (id: string, content: string) => void;
   toggleEdit: (id: string) => void;
-  moveNote: (id: string, parentId: string | null, position: number, level: number) => Promise<void>;
+  moveNote: (id: string, parentId: string | null, level: number) => Promise<void>; // Removed position parameter
   setEditMode: (isEditing: boolean) => void;
   addImage: (noteId: string, url: string) => Promise<void>;
   removeImage: (noteId: string, imageId: string) => Promise<void>;
