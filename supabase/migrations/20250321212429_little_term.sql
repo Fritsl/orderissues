@@ -42,28 +42,31 @@ BEGIN
 
   -- Moving within same parent
   IF v_old_parent_id IS NOT DISTINCT FROM p_new_parent_id THEN
+    -- First store the note in a temporary negative position to avoid conflicts
+    UPDATE notes
+    SET position = -1
+    WHERE id = p_note_id;
+
     -- Moving up (to a lower position number)
     IF p_new_position < v_old_position THEN
       UPDATE notes
       SET position = position + 1
       WHERE project_id = v_project_id
         AND parent_id IS NOT DISTINCT FROM p_new_parent_id
-        AND id != p_note_id
         AND position >= p_new_position
         AND position < v_old_position;
     
     -- Moving down (to a higher position number)
-    ELSE
+    ELSIF p_new_position > v_old_position THEN
       UPDATE notes
       SET position = position - 1
       WHERE project_id = v_project_id
         AND parent_id IS NOT DISTINCT FROM p_new_parent_id
-        AND id != p_note_id
         AND position > v_old_position
         AND position <= p_new_position;
     END IF;
 
-    -- Update the moving note's position
+    -- Finally move the note to its intended position
     UPDATE notes
     SET position = p_new_position,
         updated_at = CURRENT_TIMESTAMP
