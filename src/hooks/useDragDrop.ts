@@ -10,18 +10,21 @@ export const useDragDrop = (note: Note, onError: (error: Error) => void) => {
   const { moveNote, currentLevel } = useNoteStore();
 
   const handleDragStart = (e: React.DragEvent) => {
+    console.log('Drag started:', { noteId: note.id, noteContent: note.content });
     e.dataTransfer.setData('text/plain', note.id);
     e.dataTransfer.effectAllowed = 'move';
     setIsDragging(true);
   };
 
   const handleDragEnd = () => {
+    console.log('Drag ended:', { noteId: note.id });
     setIsDragging(false);
     setIsParentTarget(false);
     setDropZone(null); // Reset dropZone on drag end
   };
 
   const handleDragOver = (e: React.DragEvent) => {
+    console.log('Drag over:', { noteId: note.id, clientX: e.clientX, clientY: e.clientY });
     e.preventDefault();
     e.dataTransfer.dropEffect = 'move';
     const rect = e.currentTarget.getBoundingClientRect();
@@ -40,12 +43,14 @@ export const useDragDrop = (note: Note, onError: (error: Error) => void) => {
   };
 
   const handleDragLeave = () => {
+    console.log('Drag leave:', { noteId: note.id });
     setIsDragOver(false);
     setIsParentTarget(false);
     setDropZone(null); // Reset dropZone on drag leave
   };
 
   const handleDrop = async (e: React.DragEvent) => {
+    console.log('Drop:', { noteId: note.id, dropZone: dropZone });
     e.preventDefault();
     setIsDragOver(false);
     setIsParentTarget(false);

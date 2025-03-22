@@ -58,8 +58,19 @@ export const Note: React.FC<NoteProps> = ({ note, level, onError }) => {
       <div
         onDrop={(e) => {
           e.preventDefault();
+          console.log('Drop event:', { 
+            noteId: note.id,
+            noteContent: note.content,
+            hasHandleReorder: !!handleReorder,
+            hasDraggedNote: !!draggedNote
+          });
           if (handleReorder && draggedNote && note.id) {
             const dropPosition = getDragPosition(e);
+            console.log('Calling handleReorder with:', {
+              draggedNoteId: draggedNote.id,
+              targetNoteId: note.id,
+              dropPosition
+            });
             handleReorder(draggedNote.id, note.id, dropPosition);
           }
           setIsDragOver(false);
