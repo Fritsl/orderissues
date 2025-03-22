@@ -61,32 +61,30 @@ BEGIN
       RETURN;
     END IF;
 
-    -- Moving up (to a lower position number)
-    IF p_new_position < v_old_position THEN
-      UPDATE notes
-      SET position = position + 1
-      WHERE project_id = v_project_id
-      AND parent_id IS NOT DISTINCT FROM p_new_parent_id
-      AND position >= p_new_position
-      AND position < v_old_position
-      AND id != p_note_id;
+    -- Find the note at the target position for swapping
+    SELECT id INTO v_target_note_id
+    FROM notes
+    WHERE project_id = v_project_id
+    AND parent_id IS NOT DISTINCT FROM p_new_parent_id
+    AND position = p_new_position;
 
-    -- Moving down (to a higher position number)
-    ELSE
+    IF v_target_note_id IS NOT NULL THEN
+      -- Swap positions with target note
       UPDATE notes
-      SET position = position - 1
-      WHERE project_id = v_project_id
-      AND parent_id IS NOT DISTINCT FROM p_new_parent_id
-      AND position > v_old_position
-      AND position <= p_new_position
-      AND id != p_note_id;
-    END IF;
-
-    -- Move the note to its new position
-    UPDATE notes
-    SET position = p_new_position,
+      SET position = 
+        CASE id
+          WHEN p_note_id THEN p_new_position
+          WHEN v_target_note_id THEN v_old_position
+        END,
         updated_at = CURRENT_TIMESTAMP
-    WHERE id = p_note_id;
+      WHERE id IN (p_note_id, v_target_note_id);
+    ELSE
+      -- No note at target position, just move
+      UPDATE notes
+      SET position = p_new_position,
+          updated_at = CURRENT_TIMESTAMP
+      WHERE id = p_note_id;
+    END IF;
 
   -- Moving to different parent
   ELSE
