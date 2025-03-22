@@ -1,7 +1,6 @@
 import { StateCreator } from 'zustand';
 import { Store } from '../types';
 import { findNoteById, removeNoteById } from '../../utils';
-// import { database } from '../../database'; // Removed database import
 import { supabase } from '../../supabase';
 import { handleDatabaseError } from '../../errors';
 
